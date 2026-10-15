@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f1e9">
+    <title>Kalkulator Palet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+    <header class="top">
+        <div class="brand">
+            <img src="https://profil-hurt.pl/userdata/public/gfx/6212/kartony-paleta-3-1.png" alt="Kartony" width="70" height="70">
+            <span>Kalkulator Palet</span>
+        </div>
+        <span class="badge">Proste planowanie układania</span>
+    </header>
+
+    <section class="hero">
+        <div class="eyebrow">Kalkulator kartonów</div>
+        <h1>Ułóż kartony na palecie</h1>
+        <p>Podaj wymiary palety i kartonów, a program pokaże układ warstw.</p>
+    </section>
+
+    <main class="grid">
+        <section class="panel form-panel">
+            <div class="section-head">
+                <div>
+                    <h2>Wpisz wymiary</h2>
+                    <p>Wszystkie wymiary podaj w centymetrach.</p>
+                </div>
+                <img src="https://zabezpieczono.pl/wp-content/uploads/2024/10/paleta.png" alt="Paleta" width="48" height="48">
+            </div>
+
+            <h3>Paleta</h3>
+            <p class="help-text">Długość i szerokość to wymiary palety patrząc z góry. Wysokość dotyczy samej drewnianej palety.</p>
+            <div class="pallet-fields">
+                <label>Długość palety
+                    <div class="input-wrap"><input id="palletL" type="number" min="1" step="0.1" value="120"><span class="suffix">cm</span></div>
+                </label>
+                <label>Szerokość palety
+                    <div class="input-wrap"><input id="palletW" type="number" min="1" step="0.1" value="80"><span class="suffix">cm</span></div>
+                </label>
+                <label>Wysokość palety
+                    <div class="input-wrap"><input id="palletH" type="number" min="1" step="0.1" value="14"><span class="suffix">cm</span></div>
+                </label>
+            </div>
+
+            <div class="divider"></div>
+            <h3>Kartony</h3>
+            <p class="help-text">Możesz dodać do 5 różnych rozmiarów. Dla każdego podaj długość, szerokość i liczbę sztuk.</p>
+            <label class="common-height">Wysokość kartonów
+                <div class="input-wrap"><input id="boxH" type="number" min="0.1" step="0.1" value="30"><span class="suffix">cm</span></div>
+            </label>
+            <div class="types-head"><span id="typeCount">1 / 5 rozmiarów</span></div>
+            <div id="rows"></div>
+            <button class="add-btn" id="addType" type="button">＋ Dodaj inny rozmiar kartonu</button>
+
+            <div class="options">
+                <label class="toggle"><input id="rotate" type="checkbox" checked> Można obracać kartony na palecie</label>
+                <p class="help-text">Jeśli zaznaczysz tę opcję, długość i szerokość kartonu mogą zamienić się miejscami.</p>
+            </div>
+            <button class="primary" id="calculate" type="button">Ułóż kartony</button>
+            <div class="message" id="message" role="status"></div>
+        </section>
+
+        <section class="panel result">
+            <div class="result-head">
+                <div>
+                    <h2>Wynik układania</h2>
+                    <p id="viewDescription">Widok z góry pokazuje wybraną warstwę.</p>
+                </div>
+                <img src="https://theproductboxes.co.uk/wp-content/uploads/2024/08/1-metre-long-cardboard-boxes.webp" alt="Karton" width="48" height="48">
+            </div>
+
+            <div class="stats">
+                <div class="stat"><strong id="placed">—</strong><span>kartonów w stosie</span></div>
+                <div class="stat important"><strong id="coverage">—</strong><span id="coverageLabel">średnio zajęte miejsce</span></div>
+                <div class="stat"><strong id="layerCount">—</strong><span>warstw</span></div>
+                <div class="stat"><strong id="totalHeight">—</strong><span>wysokość od podłogi</span></div>
+            </div>
+
+            <div class="view-controls">
+                <button id="viewTop" class="view-button active" type="button">Widok z góry</button>
+                <button id="view3d" class="view-button" type="button">Widok 3D</button>
+                <label id="layerChoice" class="hidden">Warstwa
+                    <select id="layerSelect"></select>
+                </label>
+            </div>
+            <div class="canvas empty" id="canvas"></div>
+            <div class="legend" id="legend"></div>
+            <p class="footnote" id="footnote">Podaj wymiary i kliknij „Ułóż kartony”.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span>Kalkulator Palet · Pomoc w układaniu kartonów</span>
+        <span id="logopenny">Stworzone na praktykach w: <img src="Penny_logo_kolor.jpg" alt="Penny" width="90" height="55"></span>
+    </footer>
+</div>
+<script src="script.js" defer></script>
+</body>
+</html>
+
+
+
+
